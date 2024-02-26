@@ -1,3 +1,11 @@
+// Creo la const con il contenitore delle immagini e i pulsanti
+
+const imageContainer = document.querySelector('.image-container');
+const up = document.querySelector('.up')
+const down = document.querySelector('.down')
+
+let counterImg = 0;
+
 // Creo l'array con tutte le immagini
 
 const images = [
@@ -7,10 +15,6 @@ const images = [
   'assets/img/04.webp',
   'assets/img/05.webp',
 ]
-
-// Creo la const con il contenitore delle immagini
-
-const imageContainer = document.querySelector('.image-container');
 
 // Avvio il ciclo per aggiungere la classe alle immagini
 
@@ -28,3 +32,29 @@ const imgCollection = document.getElementsByClassName('image');
 
 
 imgCollection[0].classList.remove('hidden')
+
+
+
+// Incrementiamo e decrementiamo il counter con le frecce
+
+up.addEventListener('click', function (){
+   // Prima aggiungo la classe hidden
+
+   imgCollection[counterImg--].classList.add('hidden');
+
+   // Dopo la rimuovo
+ 
+   imgCollection[counterImg].classList.remove('hidden');
+  
+})
+
+down.addEventListener('click', function (){
+  // Prima aggiungo la classe hidden
+
+  imgCollection[counterImg++].classList.add('hidden');
+
+  // Dopo la rimuovo
+
+  imgCollection[counterImg].classList.remove('hidden');
+
+})
