@@ -23,8 +23,7 @@ for (let i = 0; i < images.length; i++) {
   const img = images[i];
   imageContainer.innerHTML += `<img class="image hidden" src="${img}">`
   cardsContainer.innerHTML += ` <div class="card-container">
-  <img src="${img}">
-  <div class="overlay"> 
+  <img src="${img}"> 
   `
 }
 
