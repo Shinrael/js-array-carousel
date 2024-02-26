@@ -42,6 +42,10 @@ up.addEventListener('click', function (){
 
    imgCollection[counterImg--].classList.add('hidden');
 
+  //  BONUS 1
+
+   counterImg = (counterImg - 1 + images.length) % images.length;
+
    // Dopo la rimuovo
  
    imgCollection[counterImg].classList.remove('hidden');
@@ -52,6 +56,10 @@ down.addEventListener('click', function (){
   // Prima aggiungo la classe hidden
 
   imgCollection[counterImg++].classList.add('hidden');
+
+  // BONUS 1
+
+  counterImg = (counterImg + 1) % images.length;
 
   // Dopo la rimuovo
 
