@@ -1,8 +1,9 @@
 // Creo la const con il contenitore delle immagini e i pulsanti
 
 const imageContainer = document.querySelector('.image-container');
-const up = document.querySelector('.up')
-const down = document.querySelector('.down')
+const up = document.querySelector('.up');
+const down = document.querySelector('.down');
+const cardsContainer = document.querySelector('.card-lat');
 
 let counterImg = 0;
 
@@ -21,48 +22,68 @@ const images = [
 for (let i = 0; i < images.length; i++) {
   const img = images[i];
   imageContainer.innerHTML += `<img class="image hidden" src="${img}">`
+  cardsContainer.innerHTML += ` <div class="card-container">
+  <img src="${img}">
+  <div class="overlay"> 
+  `
 }
 
 // Prendiamo tutte le immagini
 
 const imgCollection = document.getElementsByClassName('image');
+const cardCollection = document.getElementsByClassName('card-container');
 
 
 // Rimuoviamo la classe hidden alla prima immagine
 
 
-imgCollection[0].classList.remove('hidden')
+imgCollection[0].classList.remove('hidden');
 
+// BONUS 2 aggiungo la classe .active-card alla prima card
 
+cardCollection[counterImg].classList.add('active-card');
 
 // Incrementiamo e decrementiamo il counter con le frecce
 
 up.addEventListener('click', function (){
    // Prima aggiungo la classe hidden
 
-   imgCollection[counterImg--].classList.add('hidden');
+   imgCollection[counterImg].classList.add('hidden');
+
+   //  BONUS 2
+
+   cardCollection[counterImg].classList.remove('active-card');
 
   //  BONUS 1
 
    counterImg = (counterImg - 1 + images.length) % images.length;
 
+
    // Dopo la rimuovo
  
    imgCollection[counterImg].classList.remove('hidden');
-  
+
+   cardCollection[counterImg].classList.add('active-card');
 })
 
 down.addEventListener('click', function (){
   // Prima aggiungo la classe hidden
 
-  imgCollection[counterImg++].classList.add('hidden');
+  imgCollection[counterImg].classList.add('hidden');
+
+  // BONUS 2
+
+  cardCollection[counterImg].classList.remove('active-card');
+
 
   // BONUS 1
 
   counterImg = (counterImg + 1) % images.length;
 
+
   // Dopo la rimuovo
 
   imgCollection[counterImg].classList.remove('hidden');
 
+  cardCollection[counterImg].classList.add('active-card');
 })

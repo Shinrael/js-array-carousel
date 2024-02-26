@@ -16,10 +16,12 @@
   height: 60%;
   background-color: yellow;
   position: relative;
+  display: flex;
 }
 
 .image-container{
   height: 100%;  
+  width: 80%;
 }
 
 .image-container img{
@@ -59,4 +61,35 @@ bottom: 10px;
 
 .hidden{
   display: none;
+}
+
+.card-lat{
+  height: 100%;
+  width: 20%;
+}
+
+.card-container{
+  width: 100%;
+  height: calc(100% / 5);
+  position: relative;
+}
+
+.card-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.active-card{
+  border: 3px solid red;
 }
